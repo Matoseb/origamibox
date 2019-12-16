@@ -31,7 +31,7 @@ window.addEventListener('load', function() {
     }
 
     const CONTROLS_PREFS = [
-            ["paperWidth", { name: `Width [${UNIT}]`, _folder: "Paper", min: 10, step: 1, onFinishChange: defFinish, onChange: paperResized }],
+            ["paperWidth", { name: `Width [${UNIT}]`, _folder: "Paper", min: 1, step: 1, onFinishChange: defFinish, onChange: paperResized }],
             ["showBorder", { name: "Paper border:", _folder: "Paper", _value: true, onChange: togglePaper }],
             ["width", { name: `Width [${UNIT}]`, _folder: "Box", _value: 50, min: 1, step: 1, onFinishChange: defFinish, onChange: defChange }],
             ["_length", { name: `Length [${UNIT}]`, _folder: "Box", _value: 50, min: 1, step: 1, onFinishChange: defFinish, onChange: defChange }],
@@ -53,10 +53,11 @@ window.addEventListener('load', function() {
         let height = Math.round(CONTROLS_VALS.height);
         let _length = Math.round(CONTROLS_VALS._length);
 
-        let svgData = S.draw.clone().size(paperWidth, paperWidth).svg();
+        let svgData = S.draw.clone().size(paperWidth, paperWidth);
+
         let preface = '<?xml version="1.0" standalone="no"?>\r\n';
 
-        saveAs([preface, svgData], `origami-box_${paperWidth}_${width}x${_length}x${height}`, { type: "image/svg+xml;charset=utf-8" });
+        saveAs([preface, svgData.svg()], `origami-box_${paperWidth}_${width}x${_length}x${height}.svg`, { type: "image/svg+xml;charset=utf-8" });
     }
 
     function saveAs(data, name, opts) {
@@ -146,13 +147,14 @@ window.addEventListener('load', function() {
 
         S.g = S.draw.group();
 
-        S.border = S.draw.path().fill('none').stroke({ color: 'rgba(0,0,0,1)', width: 1 });
+        S.border = S.draw.path();
+        S.border.attr("style", "fill: none; stroke: #000000; stroke-width: 1");
         S.border.attr("vector-effect", "non-scaling-stroke");
 
         S.base = S.border.clone();
         S.g.add(S.base);
 
-        S.sides = S.border.clone().stroke({ width: 1 });
+        S.sides = S.border.clone();
         S.g.add(S.sides);
 
         S.corners = S.sides.clone();
