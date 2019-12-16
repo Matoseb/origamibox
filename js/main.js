@@ -32,7 +32,7 @@ window.addEventListener('load', function() {
 
     const CONTROLS_PREFS = [
             ["paperWidth", { name: `Width [${UNIT}]`, _folder: "Paper", min: 10, step: 1, onFinishChange: defFinish, onChange: paperResized }],
-            ["showBorder", { name: "Show paper border:", _folder: "Paper", _value: true, onChange: togglePaper }],
+            ["showBorder", { name: "Paper border:", _folder: "Paper", _value: true, onChange: togglePaper }],
             ["width", { name: `Width [${UNIT}]`, _folder: "Box", _value: 50, min: 1, step: 1, onFinishChange: defFinish, onChange: defChange }],
             ["_length", { name: `Length [${UNIT}]`, _folder: "Box", _value: 50, min: 1, step: 1, onFinishChange: defFinish, onChange: defChange }],
             ["height", { name: `Height [${UNIT}]`, _folder: "Box", _value: 20, min: 1, step: 1, onFinishChange: defFinish, onChange: defChange }],
