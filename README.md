@@ -7,3 +7,5 @@ Exports as an .svg file with the correct dimensions in millimeter.\
 Doesn't take into account the thickness of the paper. yet.
 
 Version 0.0.1
+
+![How to fold an origami box by hand](https://origamibox.matoseb.com/tutorial.jpg)
