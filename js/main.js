@@ -55,7 +55,7 @@ window.addEventListener('load', function() {
 
         let svgData = S.draw.clone().size(paperWidth, paperWidth);
 
-        let preface = '<?xml version="1.0" standalone="no"?>\r\n';
+        let preface = '<?xml version="1.0" encoding="utf-8"?>\r\n';
 
         saveAs([preface, svgData.svg()], `origami-box_${paperWidth}_${width}x${_length}x${height}.svg`, { type: "image/svg+xml;charset=utf-8" });
     }
