@@ -2,7 +2,8 @@
 
 [origamibox.matoseb.com](https://origamibox.matoseb.com)
 
-Small tool to help creating traditional japanese origami boxes.\
+Small tool to help creating traditional japanese origami boxes\
+by showing where to fold the paper.\
 Export as an .svg file with the correct dimensions in millimeter.\
 Doesn't take into account the thickness of the paper. yet.
 
